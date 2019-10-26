@@ -1,0 +1,46 @@
+<style>
+
+</style>
+
+<h1 class="text-center">Burger!</h1>
+
+<img id="burger-picture" src="assets\img\burger.jpg" width="500">
+<ul class="float-left" id="burgerlist">
+    <h2 class="list-title">Burgers to munch!</h2>
+    {{#each burgers}}
+    {{#unless devoured}}
+    <p>
+        {{this.id}}. {{this.burger_name}}
+
+        <button data-burgerid="{{this.id}}" data-burgerstate="{{this.devoured}}"
+            class="devour-the-burger btn btn-danger">Devour!</button>
+    </p>
+    {{/unless}}
+    {{/each}}
+</ul>
+<ul class="float-right" id=" burgerlist">
+    <h2 class="list-title">Burgers been Devoured</h2>
+    {{#each burgers}}
+    {{#if devoured}}
+    <p>
+        {{this.id}}. {{this.burger_name}}
+
+    </p>
+    {{/if}}
+    {{/each}}
+</ul>
+
+
+
+
+
+
+<h2 class="text-center">Enter a burger you want to eat!</h2>
+<form class="create-form text-center">
+
+    <div class="form-group">
+        <input type="text" id="burger-to-order" name="burger-name">
+    </div>
+
+    <button class="btn btn-primary add-burger" id="submit" type="submit">Submit</button>
+</form>
